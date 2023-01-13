@@ -66,12 +66,22 @@ const browserConfig = {
   output: [
     {
       file: 'examples/src/lib/vroomSDK.min.js',
-      format: 'umd',
+      format: 'cjs',
       name: 'vroomSDK',
       globals
     }
   ],
-  plugins: [terser()]
+  plugins: [
+    peerDepsExternal(),
+    resolve(),
+    commonjs(),
+    typescript({
+      tsconfig: './tsconfig.build.json',
+      sourceMap: true
+    }),
+    localResolve(),
+    tscAliasPlugin()
+  ]
 };
 
 export default [buildConfig, browserConfig];
