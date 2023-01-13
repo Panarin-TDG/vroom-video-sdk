@@ -1,5 +1,5 @@
 import assert from 'assert';
-import {version} from "./index";
+import { version } from "./index";
 
 describe('version', () => {
   it('get current version', () => {
