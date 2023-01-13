@@ -1,0 +1,35 @@
+{
+  "name": "vroom-video-sdk",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+    "lint": "tslint -p tsconfig.json",
+    "postinstall": "cd ./src/janus && npm install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Panarin-TDG/vroom-video-sdk.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Panarin-TDG/vroom-video-sdk/issues"
+  },
+  "homepage": "https://github.com/Panarin-TDG/vroom-video-sdk#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "prettier": "^2.8.0",
+    "tslint-config-prettier": "^1.18.0",
+    "@typescript-eslint/eslint-plugin": "^5.48.0",
+    "@typescript-eslint/parser": "^5.48.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "8.22.0",
+    "eslint-config-prettier": "^4.3.0",
+    "typescript": "^4.9.4"
+  }
+}
