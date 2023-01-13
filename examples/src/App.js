@@ -1,11 +1,3 @@
-# vroom-video-sdk #
-
-## Installation
-```
-yarn add vroom-video-sdk
-```
-
-```javascript
 import './App.css';
 import vroomSDK from "./lib/vroomSDK.min";
 
@@ -22,23 +14,3 @@ function App() {
 }
 
 export default App;
-```
-
-## Contribute Installation ##
-```
-git clone git@github.com:Panarin-TDG/vroom-video-sdk.git
-
-cd vroom-video-sdk
-
-yarn install
-
-yarn build
-
-cd examples
-
-npm install
-
-npm run start
-```
-
-Dev URL. http://localhost:3000

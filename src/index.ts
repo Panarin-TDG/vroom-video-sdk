@@ -1,8 +1,7 @@
-import Janus from './janus'
+import * as version from './version/index';
 
+const vroomSDK = {
+  version: version.version
+};
 
-interface VroomSDKInterface {
-
-
-
-}
+export default vroomSDK;
