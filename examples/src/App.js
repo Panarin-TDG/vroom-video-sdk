@@ -1,5 +1,9 @@
 import './App.css';
-import {vroomSDK} from "./lib/vroomSDK.min";
+import {VroomSDK, sdkServer} from "./lib/vroomSDK.min";
+
+const vroomSDK = new VroomSDK(sdkServer);
+
+console.log(vroomSDK);
 
 function App() {
   return (
