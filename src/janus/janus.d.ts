@@ -120,14 +120,14 @@ declare namespace JanusJS {
 			videoRecv?: boolean;
 			audio?: boolean | { deviceId: string };
 			video?:
-				| boolean
-				| { deviceId: string }
-				| 'lowres'
-				| 'lowres-16:9'
-				| 'stdres'
-				| 'stdres-16:9'
-				| 'hires'
-				| 'hires-16:9';
+			| boolean
+			| { deviceId: string }
+			| 'lowres'
+			| 'lowres-16:9'
+			| 'stdres'
+			| 'stdres-16:9'
+			| 'hires'
+			| 'hires-16:9';
 			data?: boolean;
 			failIfNoAudio?: boolean;
 			failIfNoVideo?: boolean;
@@ -202,7 +202,7 @@ declare namespace JanusJS {
 		getId(): string;
 		getPlugin(): string;
 		send(message: PluginMessage): void;
-		createOffer(params: OfferParams): void;
+		createOffer(params: any): void;
 		createAnswer(params: any): void;
 		handleRemoteJsep(params: { jsep: JSEP }): void;
 		dtmf(params: any): void;
