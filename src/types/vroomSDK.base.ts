@@ -16,13 +16,15 @@ export interface DefaultDependencies {
   isArray: Function;
   webRTCAdapter: any;
   httpAPICall: any;
-  newWebSocket: any;
+  newWebSocket: () => WebSocket;
   extension: extensionInit;
 }
 
 export interface VroomSDKBase {
   version: string;
   config: ConfigBase | undefined;
+  transactions: {[key: string]: Function} | {};
+  wsConn: WebSocket | undefined;
   init: InitVroomHandler;
   dependencies: DefaultDependencies;
 }

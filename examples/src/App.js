@@ -1,9 +1,9 @@
 import './App.css';
-import {VroomSDK, sdkServer} from "./lib/vroomSDK.min";
+import {VroomSDK} from "./lib/vroomSDK.min";
 
-const vroomSDK = new VroomSDK(sdkServer);
+const vroomSDK = new VroomSDK();
 
-console.log(vroomSDK);
+console.log(vroomSDK.dependencies.newWebSocket());
 
 function App() {
   return (
