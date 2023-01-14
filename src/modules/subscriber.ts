@@ -182,7 +182,8 @@ class Subscriber implements SubscriberInterface {
                             }
                         }
 
-                        this.remoteTracks[mid]?.getTracks().map((t: MediaStreamTrack) => t.stop)
+
+                        Janus.stopAllTracks(this.remoteTracks[mid])
 
                         delete this.remoteTracks[mid];
                         delete this.slots[mid];
@@ -298,6 +299,10 @@ class Subscriber implements SubscriberInterface {
         }
         if (sources)
             this.subscribeTo(sources, true);
+    }
+
+    handleOnClean(id: string) {
+        delete this.feedStreams[id]
     }
 
     handleOnEventFromPublisher(msg: any, myid: string, myusername?: string) {

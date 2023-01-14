@@ -87,8 +87,6 @@ class Publisher implements PublisherInterface {
                     Janus.log("  -- This is a publisher/manager");
 
                     this.plugin = pluginHandle!
-
-
                 },
                 error: (error) => {
                     Janus.error("  -- Error attaching publisher plugin...", error);
@@ -186,9 +184,9 @@ class Publisher implements PublisherInterface {
                 oncleanup: () => {
                     Janus.log(" ::: Got a cleanup notification: we are unpublished now :::");
                     if (this.onClean) {
-                        this.onClean()
+                        this.onClean(this.publisherId)
                     }
-                    // delete feedStreams[myid];
+
                     this.localTracks = {};
                 }
             })
