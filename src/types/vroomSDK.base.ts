@@ -16,7 +16,7 @@ export interface DefaultDependencies {
   isArray: Function;
   webRTCAdapter: any;
   httpAPICall: any;
-  newWebSocket: () => WebSocket;
+  newWebSocket: () => void;
   extension: extensionInit;
 }
 
@@ -36,7 +36,6 @@ export interface VroomSDKBase {
   config: ConfigBase | undefined;
   transactions: {[key: string]: Function} | {};
   getTransactionsRemain: Function;
-  wsConn: WebSocket | undefined;
   init: InitVroomHandler;
   dependencies: DefaultDependencies;
   instantCall: {

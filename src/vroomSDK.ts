@@ -11,7 +11,7 @@ interface JanusMessage<T = any> {
 export class VroomSDK implements VroomSDKBase {
   version = sdkVersion;
   config = { endpoint: sdkServer, iceServer: iceServer };
-  wsConn = undefined;
+  public wsConn: WebSocket | undefined;
   transactions = {};
 
   instantCall = {
@@ -33,9 +33,9 @@ export class VroomSDK implements VroomSDKBase {
     httpAPICall: () => {},
     newWebSocket: () => {
       const transaction = randomString(12);
-      const ws = new WebSocket(this.config.endpoint, sdkProtocol);
+      this.wsConn = new WebSocket(this.config.endpoint, sdkProtocol);
 
-      ws.addEventListener(WS_EVENT.OPEN, (event: Event) => {
+      this.wsConn.addEventListener(WS_EVENT.OPEN, (event: Event) => {
         // @ts-ignore
         this.transactions[transaction] = (json) => {
           console.log('in transaction', json);
@@ -48,7 +48,7 @@ export class VroomSDK implements VroomSDKBase {
         wsEvent.send(JSON.stringify({janus: 'create', transaction: transaction}));
       });
 
-      ws.addEventListener(WS_EVENT.MESSAGE, async (event) => {
+      this.wsConn.addEventListener(WS_EVENT.MESSAGE, async (event) => {
         // @ts-ignore
         const eventData: JanusMessage = JSON.parse(event?.data || '{}');
         // @ts-ignore
@@ -65,11 +65,9 @@ export class VroomSDK implements VroomSDKBase {
         }
       });
 
-      ws.addEventListener(WS_EVENT.CLOSE, () => { console.log('WS on close'); });
+      this.wsConn.addEventListener(WS_EVENT.CLOSE, () => { console.log('WS on close'); });
 
-      ws.addEventListener(WS_EVENT.ERROR, () => { console.log('WS on Error'); });
-
-      return ws;
+      this.wsConn.addEventListener(WS_EVENT.ERROR, () => { console.log('WS on Error'); });
     },
     extension: {
       extensionId: 'hapfgfdkleiggjjpfpenajgdnfckjpaj',
