@@ -40,3 +40,11 @@ export const WS_EVENT = {
   CLOSE: 'close',
   ERROR: 'error'
 }
+
+/**
+ * @name STATUS
+ * @constant
+ */
+export const STATUS = {
+  SUCCESS: 'success'
+}

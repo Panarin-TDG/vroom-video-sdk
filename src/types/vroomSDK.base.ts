@@ -20,11 +20,29 @@ export interface DefaultDependencies {
   extension: extensionInit;
 }
 
+export interface attachWebRtc {
+  consentDialog: Function,
+  iceState: Function,
+  mediaState: Function,
+  webrtcState: Function,
+  slowLink: Function,
+  onMessage: Function,
+  onLocalTrack: Function,
+  onRemoteTrack: Function,
+}
+
 export interface VroomSDKBase {
   version: string;
   config: ConfigBase | undefined;
   transactions: {[key: string]: Function} | {};
+  getTransactionsRemain: Function;
   wsConn: WebSocket | undefined;
   init: InitVroomHandler;
   dependencies: DefaultDependencies;
+  instantCall: {
+    success: Function,
+    error: Function,
+    onCleanup: Function,
+    destroyed: Function,
+  }
 }

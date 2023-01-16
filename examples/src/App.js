@@ -2,8 +2,9 @@ import './App.css';
 import {VroomSDK} from "./lib/vroomSDK.min";
 
 const vroomSDK = new VroomSDK();
-
+console.log(vroomSDK.getTransactionsRemain());
 console.log(vroomSDK.dependencies.newWebSocket());
+console.log(vroomSDK.getTransactionsRemain());
 
 function App() {
   return (
